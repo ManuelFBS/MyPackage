@@ -34,13 +34,23 @@ const myPizzaOrder = new Promise((resolve, reject) => {
 // ---------------------------------------------------------------------------
 
 // Optimizando el código anterior...
-/* El código `myPizzaOrder.then((successfulMessage) => { console.log(successfulMessage) }).then(null,
-(errorMessage) => { console.log(errorMessage) })` está usando el método `then()` para manejar el
-resultado de la promesa `myPizzaOrder`. */
+// /* El código `myPizzaOrder.then((successfulMessage) => { console.log(successfulMessage) }).then(null,
+// (errorMessage) => { console.log(errorMessage) })` está usando el método `then()` para manejar el
+// resultado de la promesa `myPizzaOrder`. */
+// myPizzaOrder
+//   .then((successfulMessage) => {
+//     console.log(successfulMessage)
+//   })
+//   .then(null, (errorMessage) => {
+//     console.log(errorMessage)
+//   })
+
+// Optimizando más el código anterior...
+// Eliminando el 'null' y usando "catch()"...
 myPizzaOrder
   .then((successfulMessage) => {
     console.log(successfulMessage)
   })
-  .then(null, (errorMessage) => {
+  .catch((errorMessage) => {
     console.log(errorMessage)
   })
