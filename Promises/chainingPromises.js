@@ -30,15 +30,28 @@ function orderProcess(response) {
 }
 
 // orderProduct(PROD) ---> Acepta la promesa. No hay errores...
-orderProduct('lapiz')
-  .then((response) => {
+// orderProduct('lapiz')
+//   .then((response) => {
+//     console.log('Respuesta recibida...')
+//     console.log(response)
+//     return orderProcess(response)
+//   })
+//   .then((responseProcessed) => {
+//     console.log(responseProcessed)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })
+
+async function order(product) {
+  try {
+    const response = await orderProduct(product)
     console.log('Respuesta recibida...')
-    console.log(response)
-    return orderProcess(response)
-  })
-  .then((responseProcessed) => {
-    console.log(responseProcessed)
-  })
-  .catch((error) => {
+    const responseProc = await orderProcess(response)
+    console.log(responseProc)
+  } catch (error) {
     console.log(error)
-  })
+  }
+}
+
+order('lapiz')
